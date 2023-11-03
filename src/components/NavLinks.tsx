@@ -2,19 +2,29 @@ function NavLinks() {
   return (
     <>
       <li>
-        <a href="#">Home</a>
+        <a href="#" className="hover:text-softRed transition-colors">
+          Home
+        </a>
       </li>
       <li>
-        <a href="#">New</a>
+        <a href="#" className="hover:text-softRed transition-colors">
+          New
+        </a>
       </li>
       <li>
-        <a href="#">Popular</a>
+        <a href="#" className="hover:text-softRed transition-colors">
+          Popular
+        </a>
       </li>
       <li>
-        <a href="#">Trending</a>
+        <a href="#" className="hover:text-softRed transition-colors">
+          Trending
+        </a>
       </li>
       <li>
-        <a href="#">Categories</a>
+        <a href="#" className="hover:text-softRed transition-colors">
+          Categories
+        </a>
       </li>
     </>
   );

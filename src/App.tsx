@@ -89,7 +89,7 @@ function App() {
 
             <a
               href="#"
-              className="px-9 py-3 text-center cursor-pointer bg-softRed w-fit font-semibold text-offWhite tracking-[0.2em]"
+              className="px-9 py-3 text-center cursor-pointer hover:bg-veryDarkBlue transition-colors bg-softRed w-fit font-semibold text-offWhite tracking-[0.2em]"
             >
               READ MORE
             </a>
