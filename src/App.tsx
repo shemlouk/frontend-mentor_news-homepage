@@ -31,7 +31,7 @@ function App() {
   }, []);
 
   return (
-    <div className="font-[Inter] text-[15px] bg-offWhite text-veryDarkBlue w-full px-5 md:px-[10%] flex flex-col gap-4 md:gap-10 justify-center items-center md:text-base md:py-20">
+    <div className="font-[Inter] text-[15px] bg-offWhite text-veryDarkBlue w-full px-5 md:px-[10%] flex flex-col gap-4 md:gap-10 justify-center items-center md:text-base md:py-10">
       <header className="max-w-screen-xl w-full flex justify-between items-center py-5 sticky top-0 left-0 bg-offWhite">
         <img src={Logo} alt="logo" className="h-8 md:h-10" />
         {isDesktopScreen ? (
@@ -68,7 +68,7 @@ function App() {
         </nav>
       </aside>
 
-      <main className="max-w-screen-xl grid grid-cols-1 gap-16 pb-20 md:grid-cols-3 md:gap-x-10 md:gap-y-14 md:p-0">
+      <main className="max-w-screen-xl grid grid-cols-1 gap-16 pb-20 md:grid-cols-3 md:gap-x-10 md:gap-y-14 md:p-0 md:flex-1">
         <div className="grid grid-cols-1 gap-6 md:col-span-2 md:grid-cols-2 md:gap-x-12 md:gap-y-6">
           <img
             src={isDesktopScreen ? ImageWeb3Desktop : ImageWeb3Mobile}
@@ -96,20 +96,22 @@ function App() {
           </div>
         </div>
 
-        <div className="flex flex-col gap-6 px-5 py-6 bg-veryDarkBlue text-grayishBlue">
-          <span className="text-3xl text-softOrange font-bold">New</span>
+        <div className="flex flex-col gap-6 px-5 py-6 bg-veryDarkBlue text-grayishBlue md:justify-around">
+          <span className="text-3xl text-softOrange font-bold md:text-4xl">
+            New
+          </span>
 
           <ul className="flex flex-col justify-between gap-8">
             <ListItem
               title="Hydrogen VS Electric Cars"
               resume="Will hydrogen-fueled cars ever catch up to EVs?"
             />
-            <div className="w-full h-[1px] bg-darkGrayishBlue" />
+            <div className="w-full h-[1px] bg-white/20" />
             <ListItem
               title="The Downsides of AI Artistry"
               resume="What are the possible adverse effects of on-demand AI image generation?"
             />
-            <div className="w-full h-[1px] bg-darkGrayishBlue" />
+            <div className="w-full h-[1px] bg-white/20" />
             <ListItem
               title="Is VC Funding Drying Up?"
               resume="Private funding by VC firms is down 50% YOY. We take a look at what that means."
@@ -117,7 +119,7 @@ function App() {
           </ul>
         </div>
 
-        <ul className="flex flex-col gap-8 md:col-span-3 md:flex-row">
+        <ul className="flex flex-col gap-8 md:col-span-3 md:flex-row md:justify-between">
           <ListCard
             imageSource={ImageRetroPcs}
             imageAlt="retro pcs image"
