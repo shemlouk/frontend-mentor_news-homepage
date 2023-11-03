@@ -1,3 +1,5 @@
+import { useCallback, useRef } from "react";
+import IconMenuClose from "./assets/images/icon-menu-close.svg";
 import IconMenu from "./assets/images/icon-menu.svg";
 import ImageGamingGrowth from "./assets/images/image-gaming-growth.jpg";
 import ImageRetroPcs from "./assets/images/image-retro-pcs.jpg";
@@ -8,12 +10,55 @@ import ListCard from "./components/ListCard";
 import ListItem from "./components/ListItem";
 
 function App() {
+  const sidebarRef = useRef<HTMLElement>(null);
+
+  const toggleSidebar = useCallback((state: "open" | "close") => {
+    sidebarRef.current?.setAttribute("data-hide", String(state === "close"));
+  }, []);
+
   return (
     <div className="font-[Inter] text-[15px] bg-offWhite text-veryDarkBlue w-full px-5 flex flex-col gap-4">
       <header className="flex justify-between items-center py-5 sticky top-0 bg-offWhite">
         <img src={Logo} alt="logo" className="h-8" />
-        <img src={IconMenu} alt="menu icon" />
+        <img
+          src={IconMenu}
+          alt="menu icon"
+          onClick={() => toggleSidebar("open")}
+        />
       </header>
+
+      <aside
+        ref={sidebarRef}
+        data-hide="true"
+        onClick={(e) => e.target === e.currentTarget && toggleSidebar("close")}
+        className="group h-screen w-screen fixed top-0 left-0 bg-black/20 data-[hide=true]:bg-black/0 data-[hide=true]:invisible transition-all duration-500 ease-out"
+      >
+        <nav className="w-2/3 h-screen group-data-[hide=true]:translate-x-full bg-white fixed top-0 right-0 flex flex-col items-end p-6 gap-20 transition-all duration-300 ease-out">
+          <img
+            src={IconMenuClose}
+            alt="menu close icon"
+            className="h-8 w-fit"
+            onClick={() => toggleSidebar("close")}
+          />
+          <ul className="flex flex-col gap-6 text-xl w-full">
+            <li>
+              <a href="#">Home</a>
+            </li>
+            <li>
+              <a href="#">New</a>
+            </li>
+            <li>
+              <a href="#">Popular</a>
+            </li>
+            <li>
+              <a href="#">Trending</a>
+            </li>
+            <li>
+              <a href="#">Categories</a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
 
       <main className="grid grid-cols-1 gap-16 pb-20">
         <div className="grid grid-cols-1 gap-6">
